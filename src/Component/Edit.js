@@ -2,8 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { fetchTodo, updateTodo } from './Action';
+import Loader from '../Loader';
+import { Link,form } from 'react-router-dom';
 
 export default function FormEdit() {
+  const [loading, setLoading] = useState(false);
+
     const [title, setTitle] = useState('');
     const [email, setEmail] = useState('');
     const [mobile, setMobile] = useState('');
@@ -44,37 +48,40 @@ export default function FormEdit() {
             setEmployeeid(todoUpdate.employeeid || '');
         }
     }, [todoUpdate]);
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      setLoading(true);
+      try {
         if (todoUpdate) {
-            try {
-                dispatch(updateTodo(todoUpdate.id, { title,employeeid, email, mobile, date, address, state, city, pcode, gender, mstatus, country }));
-
-            } catch {
-                setTitle("")
-                setEmail("")
-                setMobile("")
-                setDate("")
-                setAddress("")
-                setState("")
-                setCity("")
-                setPcode("")
-                setGender("")
-                setMstatus("")
-                setCountry("")
-                setEmployeeid("")
-
-
-            }
+          await dispatch(updateTodo(todoUpdate.id, {
+            title, employeeid, email, mobile, date, address, state, city, pcode, gender, mstatus, country
+          }));
         }
         navigate('/table');
+      } catch (error) {
+        console.error('Error updating todo:', error);
+      } finally {
+        setLoading(false);
+      }
     };
+  
 
     return (
-        <div className='form-container'>
-        <h2>Employee Registration Form</h2>
+      <>
+      <div className='branding'>
+      <img 
+      src='.Formlogo.webp'
+      alt="image" 
+      style={{ width: '50px', height: '50px'}}
+      />
+      <span>Employee Registration </span>
+      <Link to="/" className='bwd'>Employee Register Form</Link>
+      <Link to="/table" className='process'>Employee Details</Link>
+    </div>
+    <div className='form-container'>
+      {loading && <Loader />}
       <form onSubmit={handleSubmit}>
+      <h2 className='_qwet'>Employee Registration Form</h2>
         <div className='form-group-cx'>
         <input
           type="text"
@@ -169,8 +176,9 @@ export default function FormEdit() {
         </div>
         </div>
   
-        <button type="submit">submit</button>
+        <button type="submit" className='submit'>submit</button>
       </form>
       </div>
+      </>
     );
 }
