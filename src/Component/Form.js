@@ -26,13 +26,19 @@ const TodoForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // const validationErrors = {};
+    // if (!mobile.trim()) {
+    //   validationErrors.mobile = "please fill your number!";
+    // } else if (!/^\d{10}$/.test(mobile)) {
+    //   validationErrors.mobile = "Invalid phone number format!";
+    // }
     setLoading(true);
     dispatch(createTodo({ title, email, mobile, date, address, state, city, pcode, gender, mstatus, country, employeeid }))
       .then(() => {
         setLoading(false);
         Swal.fire({
           title: 'Success!',
-          text: 'Employee registration successful!',
+          text: 'Employee registration successfully Submitted!',
           icon: 'success',
           confirmButtonText: 'OK'
         }).then(() => {
@@ -66,28 +72,29 @@ const TodoForm = () => {
       <div className='form-container'>
         {loading && <Loader />}
         <form onSubmit={handleSubmit}>
-          <h2 className='_qwet'>Employee Registration Form</h2>
+          <h2 className='_qwet'>Register Form</h2>
           <div className='form-group-cx'>
             <input
               type="text"
               placeholder="Enter name"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              required
-            />
+              
+            required/>
+            {/* {errors.title && <p className="error">{errors.title}</p>} */}
             <input
               type='text'
               placeholder='Enter employee id'
               value={employeeid}
               onChange={(e) => setEmployeeid(e.target.value)}
-              required
+              
             />
             <input
               type='date'
               placeholder='mm-dd-yyyy'
               value={date}
               onChange={(e) => setDate(e.target.value)}
-              required
+              
             />
           </div>
           <div className='form-grouptw'>
@@ -96,20 +103,20 @@ const TodoForm = () => {
               placeholder="Enter mobile number"
               value={mobile}
               onChange={(e) => setMobile(e.target.value)}
-              required
+              
             />
             <input
               type="email"
               placeholder="Enter email address"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              required
+              
             />
           </div>
           <div className='form-grouptw'>
             <select
               value={gender}
-              onChange={(e) => setGender(e.target.value)} required>
+              onChange={(e) => setGender(e.target.value)} >
               <option value="">Select Gender</option>
               <option value="male">Male</option>
               <option value="female">Female</option>
@@ -117,7 +124,7 @@ const TodoForm = () => {
             </select>
             <select
               value={mstatus}
-              onChange={(e) => setMstatus(e.target.value)} required>
+              onChange={(e) => setMstatus(e.target.value)} >
               <option value="">Marital Status</option>
               <option value="married">Married</option>
               <option value="unmarried">Unmarried</option>
@@ -130,7 +137,7 @@ const TodoForm = () => {
               type='text'
               placeholder='Enter address'
               value={address}
-              onChange={(e) => setAddress(e.target.value)} required
+              onChange={(e) => setAddress(e.target.value)} 
             />
           </div>
           <div className='form-grouptw'>
@@ -138,11 +145,11 @@ const TodoForm = () => {
               type='text'
               placeholder='Enter state'
               value={state}
-              onChange={(e) => setState(e.target.value)} required
+              onChange={(e) => setState(e.target.value)} 
             />
             <select
               value={country}
-              onChange={(e) => setCountry(e.target.value)} required>
+              onChange={(e) => setCountry(e.target.value)} >
               <option value="">Country</option>
               <option value="india">India</option>
               <option value="others">Others</option>
@@ -153,13 +160,13 @@ const TodoForm = () => {
               type='text'
               placeholder='Enter city'
               value={city}
-              onChange={(e) => setCity(e.target.value)} required
+              onChange={(e) => setCity(e.target.value)} 
             />
             <input
               type='text'
               placeholder='Enter postal code'
               value={pcode}
-              onChange={(e) => setPcode(e.target.value)} required
+              onChange={(e) => setPcode(e.target.value)} 
             />
           </div>
           <button type="submit" className='submit'>Submit</button>

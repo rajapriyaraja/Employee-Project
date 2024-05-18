@@ -18,7 +18,7 @@
 }
 
 .tables th {
-    background-color:  #3a3a3d;/*#3c3a80*/
+    background-color:  #678796;/*#3c3a80*/
     color: #f2f2f2;
 }
 
@@ -31,9 +31,7 @@
     justify-content: center;
     text-align: center;
     margin-bottom: 5px;
-
 }
-
 .delete {
     color: brown;
     font-size: 20px;
@@ -54,14 +52,38 @@
 
 .dailog {
     position: absolute;
-    top: 300px;
-    padding: 30px;
+    top: 250px;
+    padding: 50px;
     border-radius: 7px;
     font-family: "Protest Revolution", sans-serif;
     font-weight: 400;
     text-align: center;
-  
     font-style: normal;
     border: none;
-    box-shadow: 0 4px 6px #ebb851;
+    left: 500px;
+    box-shadow: 6px 6px 4px 6px #9e9d99;
+  }
+  .wx_remove{
+    padding: 10px;
+    margin: 20px;
+    border-radius: 10px;
+    width: 60px;
+    margin-top: 20px;
+    color:orangered;
+    border: none;
+    box-shadow: 2px 2px 2px white;
+    font-size: 20px;
+  }
+  .wx_edit{
+    padding: 10px;
+    width: 60px;
+    background-color: orangered;
+    color: white;
+    margin: 10px;
+    border-radius: 10px;
+    border: none;
+    font-size: 20px;
+  }
+  h1{
+    color:black;
   }

@@ -33,6 +33,7 @@ const Table = () => {
 
   const handleDelete = (id) => {
     dispatch(deleteTodo(id));
+    setDialogVisible(false)
   };
 
   const handleEdit = (id) => {
@@ -99,29 +100,21 @@ const Table = () => {
           ))}
         </tbody>
       </table>
-      {dialogVisible && (
-            <dialog open className="dailog">
-              <h3 className="title-haven">
-                {" "}
-                Are you sure!.. <span className="order">
-                  You want to delete
-                </span>{" "}
-                <span className="mango"> Your Favorite order🥹?</span>{" "}
-              </h3>
-              <form method="dialog">
-                <button
-                  type="button"
-                  className="del"
-                  onClick={() => handleDelete(selectedUserId)}
-                >
-                  Yes
-                </button>
-                <button className="nope" type="button" onClick={closeDialog}>
-                  No
-                </button>
-              </form>
-            </dialog>
-          )}
+      {dialogVisible &&(
+        <dialog open className='dailog'>
+          <h3>Are you Really want to delete it</h3>
+          <button
+          className='wx_remove'
+          type='button'
+          onClick={()=>handleDelete(selectedUserId)}>Yes
+          </button>
+          <button
+          type="button"
+          className='wx_edit' 
+          onClick={closeDialog}>No</button>
+        </dialog>
+      )}
+    
     </div>
   );
 };

@@ -64,16 +64,13 @@ export default function FormEdit() {
         setLoading(false);
       }
     };
-  
-
     return (
       <>
       <div className='branding'>
-      <img 
-      src='.Formlogo.webp'
-      alt="image" 
-      style={{ width: '50px', height: '50px'}}
-      />
+   <img src="/Formlogo.webp"
+   alt='image'
+   style={{ width: '50px', height: '50px'}}
+   />
       <span>Employee Registration </span>
       <Link to="/" className='bwd'>Employee Register Form</Link>
       <Link to="/table" className='process'>Employee Details</Link>
@@ -81,7 +78,7 @@ export default function FormEdit() {
     <div className='form-container'>
       {loading && <Loader />}
       <form onSubmit={handleSubmit}>
-      <h2 className='_qwet'>Employee Registration Form</h2>
+      <h2 className='_qwet'> Register Form</h2>
         <div className='form-group-cx'>
         <input
           type="text"
@@ -143,7 +140,6 @@ export default function FormEdit() {
         value={address}
         onChange={(e) => setAddress(e.target.value)} 
       />
-        
         <div className='form-grouptw'>
         <select
           value={country}
