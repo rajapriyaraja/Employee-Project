@@ -56,25 +56,27 @@ const Table = () => {
       <table className='tables'>
         <thead>
           <tr>
+            <th>Title</th>
             <th>Name</th>
             <th>EmployeeId</th>
             <th>Email</th>
             <th>Mobile</th>
-            <th>DOB</th>
+            <th>DateofBirth</th>
             <th>Gender</th>
             <th>Marital Status</th>
             <th>Address</th>
             <th>Country</th>
             <th>State</th>
             <th>City</th>
-            <th>Postal Code</th>
+            <th>Pin Code</th>
             <th>Action</th>
           </tr>
         </thead>
         <tbody>
           {todos.map((todo) => (
             <tr className="data_bds" key={todo.id}>
-              <td>{todo.title}</td>
+              <td>{todo.titleOption}</td>
+              <td>{todo.name}</td>
               <td>{todo.employeeid}</td>
               <td>{todo.email}</td>
               <td>{todo.mobile}</td>

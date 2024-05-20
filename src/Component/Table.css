@@ -61,15 +61,16 @@
     font-style: normal;
     border: none;
     left: 500px;
-    box-shadow: 6px 6px 4px 6px #9e9d99;
+    box-shadow: 2px 2px 5px 3px #9e9d99;
   }
   .wx_remove{
     padding: 10px;
-    margin: 20px;
+    margin-top: 20px;
     border-radius: 10px;
     width: 60px;
     margin-top: 20px;
-    color:orangered;
+    color:white;
+    background-color: red;
     border: none;
     box-shadow: 2px 2px 2px white;
     font-size: 20px;
@@ -77,12 +78,14 @@
   .wx_edit{
     padding: 10px;
     width: 60px;
-    background-color: orangered;
+    background-color: green;
     color: white;
-    margin: 10px;
+    margin-top: 20px;
+    margin-left: 20px;
     border-radius: 10px;
     border: none;
     font-size: 20px;
+    
   }
   h1{
     color:black;
